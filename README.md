@@ -1,24 +1,27 @@
-# README
+# Simple api app
+> This is a simple api app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Version
+----------
+- ruby 2.5.1
+- Rails v5.2.3
 
-* Ruby version
+## Setup Local
+--------------
+- Drop db `rails db:drop`
+- Create db `rails db:create`
+- Migrate Table `rails db:migrate`
+- Seed Data `rails db:seed`
+- Run local server `rails s`
 
-* System dependencies
+## Desctiption
+----------
+- in this API project, I used json_api structure , json api is spesification for building apis in json, by following shared convention , we can increase productivity and focus on what matters.
+we can easly include data relationship and specify attributes to what client side needs.
+i'm using `fast_json` gem rather than `active model serializer`, based on benchmarking result `fast json` gem perform 25x faster than AMS
+and for pagination i prefer to using `pagy` comparing it to the other well known gems like  than `kaminari` or `will_paginate`, pagy preform 40x faster 
 
-* Configuration
+-  For solution scale i used to use services patern to running operations in controller but i prefer to using `trailblazer-rails` gem ,as they said that `Trailblazer gives you a high-level architecture for web applications. It extends the basic MVC pattern with new abstractions`, and yeah it makes the code easier to read and simpler, also for scaling and maintenance, but for more complex cases I prefer to create my own service
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- For simple authentication i use `knock`gem
